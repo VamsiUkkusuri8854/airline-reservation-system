@@ -1,1 +1,12 @@
 /target/
+/bin/
+*.class
+.classpath
+.project
+/.settings/
+*.log
+*.iml
+.idea/
+*.swp
+.DS_Store
+
