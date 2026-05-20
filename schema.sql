@@ -24,7 +24,10 @@ CREATE TABLE IF NOT EXISTS flights (
     total_seats INT NOT NULL,
     available_seats INT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
-    status VARCHAR(20) NOT NULL DEFAULT 'ON TIME'
+    status VARCHAR(20) NOT NULL DEFAULT 'ON TIME',
+    airline_name VARCHAR(100),
+    airline_logo VARCHAR(255),
+    is_api_flight BOOLEAN DEFAULT FALSE
 );
 
 -- 3. Reservations Table

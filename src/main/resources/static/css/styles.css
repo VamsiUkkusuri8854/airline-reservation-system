@@ -1,0 +1,167 @@
+/* Global Variables & Adjustments */
+:root {
+    --primary-blue: #0072ac;
+    --primary-light: #00a8cc;
+    --dark-blue: #0a2540;
+    --text-main: #2c3e50;
+    --text-muted: #6c757d;
+    --bg-light: #f5f7fa;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    font-size: 1.05rem; /* Larger base font for readability */
+}
+
+/* Typography & Contrast Adjustments */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-blue);
+    font-weight: 700;
+}
+
+.text-muted {
+    color: #55606d !important; /* Darker grey for better contrast */
+}
+
+.small {
+    font-size: 0.95rem; /* Ensure small text is still highly legible */
+}
+
+/* Button UI Fixes */
+.btn {
+    transition: all 0.3s ease;
+    padding: 0.6rem 1.5rem;
+    font-size: 1.05rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-blue));
+    border: none;
+    color: white !important;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-blue), #004c7a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 168, 204, 0.3);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ff4d4d, #cc0000);
+    border: none;
+    color: white !important;
+    font-weight: 600;
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 77, 77, 0.3);
+}
+
+/* Form Inputs */
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1.05rem;
+    border: 1px solid #dee2e6;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 0.25rem rgba(0, 168, 204, 0.25);
+}
+
+.form-control::placeholder {
+    color: #99a2ab !important; /* Visible placeholders */
+    opacity: 1;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin-bottom: 0.4rem;
+}
+
+/* Custom Table UI Overhaul */
+.table-custom {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    border: 1px solid #eaedf1;
+}
+
+.table-custom table {
+    margin-bottom: 0;
+}
+
+.table-custom th {
+    background-color: #f1f4f8;
+    color: var(--dark-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding: 16px;
+    border-bottom: 2px solid #e0e5ea;
+}
+
+.table-custom td {
+    vertical-align: middle;
+    padding: 18px 16px; /* High row height */
+    color: var(--text-main);
+    border-bottom: 1px solid #f1f3f5;
+    font-size: 1rem;
+}
+
+/* Alternating rows logic */
+.table-custom tbody tr:nth-of-type(even) {
+    background-color: #fbfcfd;
+}
+
+.table-custom tbody tr:hover {
+    background-color: #f1f7fd;
+}
+
+/* Flight/Metric Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.metric-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    border-top: 5px solid var(--primary-light);
+    transition: transform 0.3s;
+}
+
+.metric-card:hover {
+    transform: translateY(-4px);
+}
+
+.flight-card {
+    transition: all 0.3s ease;
+}
+
+.flight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+/* Badge styling */
+.badge {
+    padding: 0.5em 0.75em;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    font-weight: 600;
+}

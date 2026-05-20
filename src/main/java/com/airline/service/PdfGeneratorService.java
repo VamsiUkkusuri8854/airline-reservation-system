@@ -20,16 +20,16 @@ public class PdfGeneratorService {
     private static final BaseColor COLOR_SUCCESS_BG = new BaseColor(232, 245, 233); // #e8f5e9
     private static final BaseColor COLOR_SUCCESS_TXT = new BaseColor(46, 125, 50);  // #2e7d32
 
-    private final Font fontTitleWhite = new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD, BaseColor.WHITE);
-    private final Font fontPassBlue = new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD, COLOR_CYAN);
+    private final Font fontTitleWhite = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.WHITE);
+    private final Font fontPassBlue = new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD, COLOR_CYAN);
     
-    private final Font fontLabel = new Font(Font.FontFamily.HELVETICA, 9, Font.NORMAL, COLOR_MUTED);
-    private final Font fontValueBold = new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, COLOR_TEXT_DARK);
-    private final Font fontPnrBold = new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD, COLOR_CYAN);
+    private final Font fontLabel = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, COLOR_MUTED);
+    private final Font fontValueBold = new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD, COLOR_TEXT_DARK);
+    private final Font fontPnrBold = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, COLOR_CYAN);
     
-    private final Font fontRouteBig = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, COLOR_NAVY);
-    private final Font fontStatus = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD, COLOR_SUCCESS_TXT);
-    private final Font fontFooter = new Font(Font.FontFamily.HELVETICA, 8, Font.ITALIC, COLOR_MUTED);
+    private final Font fontRouteBig = new Font(Font.FontFamily.HELVETICA, 20, Font.BOLD, COLOR_NAVY);
+    private final Font fontStatus = new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, COLOR_SUCCESS_TXT);
+    private final Font fontFooter = new Font(Font.FontFamily.HELVETICA, 10, Font.ITALIC, COLOR_MUTED);
 
     public byte[] generateBoardingPassPdf(Reservation res) {
         Document document = new Document(PageSize.A4, 36, 36, 36, 36);
@@ -278,7 +278,7 @@ public class PdfGeneratorService {
         textCell.setPadding(10);
         textCell.setHorizontalAlignment(Element.ALIGN_CENTER);
 
-        Paragraph footerPara = new Paragraph("Thank you for choosing FlyHigh Airlines • Have a pleasant journey!", fontFooter);
+        Paragraph footerPara = new Paragraph("Thank you for choosing FlyHigh Airlines • Have a pleasant journey!\n© 2026 FlyHigh Airlines | Developed by Vamsi Ukkusuri", fontFooter);
         footerPara.setAlignment(Element.ALIGN_CENTER);
         textCell.addElement(footerPara);
         table.addCell(textCell);

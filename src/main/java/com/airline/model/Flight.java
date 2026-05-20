@@ -1,3 +1,8 @@
+/*
+ * Airline Reservation System
+ * Developed by Vamsi Ukkusuri
+ * © 2026 All Rights Reserved
+ */
 package com.airline.model;
 
 import javax.persistence.Column;
@@ -41,6 +46,15 @@ public class Flight {
 
     @Column(name = "status", nullable = false)
     private String status = "ON TIME";
+
+    @Column(name = "airline_name")
+    private String airlineName;
+
+    @Column(name = "airline_logo")
+    private String airlineLogo;
+
+    @Column(name = "is_api_flight", columnDefinition = "boolean default false")
+    private boolean isApiFlight;
 
     public Flight() {}
 
@@ -173,6 +187,30 @@ public class Flight {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getAirlineName() {
+        return airlineName;
+    }
+
+    public void setAirlineName(String airlineName) {
+        this.airlineName = airlineName;
+    }
+
+    public String getAirlineLogo() {
+        return airlineLogo;
+    }
+
+    public void setAirlineLogo(String airlineLogo) {
+        this.airlineLogo = airlineLogo;
+    }
+
+    public boolean isApiFlight() {
+        return isApiFlight;
+    }
+
+    public void setApiFlight(boolean apiFlight) {
+        isApiFlight = apiFlight;
     }
 
     @Override

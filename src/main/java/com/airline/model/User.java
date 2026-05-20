@@ -1,3 +1,8 @@
+/*
+ * Airline Reservation System
+ * Developed by Vamsi Ukkusuri
+ * © 2026 All Rights Reserved
+ */
 package com.airline.model;
 
 import javax.persistence.Column;

@@ -1,3 +1,8 @@
+/*
+ * Airline Reservation System
+ * Developed by Vamsi Ukkusuri
+ * © 2026 All Rights Reserved
+ */
 package com.airline.controller;
 
 import com.airline.exception.AirlineException;
@@ -15,9 +20,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class FlightController {
+
+    private static final List<String> AIRPORTS = java.util.Arrays.asList(
+        "JFK - John F. Kennedy International Airport - New York",
+        "LHR - Heathrow Airport - London",
+        "SFO - San Francisco International Airport - San Francisco",
+        "CDG - Charles de Gaulle Airport - Paris",
+        "DXB - Dubai International Airport - Dubai",
+        "HND - Tokyo Haneda Airport - Tokyo",
+        "SYD - Sydney Kingsford Smith Airport - Sydney",
+        "ORD - O'Hare International Airport - Chicago",
+        "LAX - Los Angeles International Airport - Los Angeles",
+        "FRA - Frankfurt Airport - Frankfurt"
+    );
 
     private final FlightService flightService;
     private final ReservationService reservationService;
@@ -60,6 +81,46 @@ public class FlightController {
             return "customer-dashboard";
         }
         return "index";
+    }
+
+    @GetMapping("/live-flights")
+    public String showLiveFlights(@RequestParam(required = false) String source,
+                                  @RequestParam(required = false) String destination,
+                                  @RequestParam(required = false) String airline,
+                                  @RequestParam(required = false) String status,
+                                  Model model) {
+        // Fetch flights (both API and manual fallback are supported via service)
+        List<Flight> allFlights = flightService.getAllFlights();
+        
+        if (source != null && !source.trim().isEmpty()) {
+            allFlights = allFlights.stream().filter(f -> f.getSource().toLowerCase().contains(source.toLowerCase())).collect(Collectors.toList());
+        }
+        if (destination != null && !destination.trim().isEmpty()) {
+            allFlights = allFlights.stream().filter(f -> f.getDestination().toLowerCase().contains(destination.toLowerCase())).collect(Collectors.toList());
+        }
+        if (airline != null && !airline.trim().isEmpty()) {
+            allFlights = allFlights.stream().filter(f -> f.getAirlineName() != null && f.getAirlineName().toLowerCase().contains(airline.toLowerCase())).collect(Collectors.toList());
+        }
+        if (status != null && !status.trim().isEmpty() && !status.equals("ALL")) {
+            allFlights = allFlights.stream().filter(f -> f.getStatus() != null && f.getStatus().equalsIgnoreCase(status)).collect(Collectors.toList());
+        }
+
+        model.addAttribute("flights", allFlights);
+        model.addAttribute("sourceParam", source);
+        model.addAttribute("destinationParam", destination);
+        model.addAttribute("airlineParam", airline);
+        model.addAttribute("statusParam", status);
+        
+        return "live-flights";
+    }
+
+    @GetMapping("/api/airports/search")
+    @ResponseBody
+    public List<String> searchAirports(@RequestParam String query) {
+        String lowerQuery = query.toLowerCase();
+        return AIRPORTS.stream()
+                .filter(a -> a.toLowerCase().contains(lowerQuery))
+                .collect(Collectors.toList());
     }
 
     @PostMapping("/admin/flights/add")

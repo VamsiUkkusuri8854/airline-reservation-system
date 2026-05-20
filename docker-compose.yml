@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "9090:9090"
+    environment:
+      - DB_URL=jdbc:mysql://db:3306/airline_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - DB_USER=root
+      - DB_PASS=root123
+      - PORT=9090
+      - AVIATION_API_KEY=a79890856020707c77decaf08836942b
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - airline_net
+
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=airline_db
+      - MYSQL_ROOT_PASSWORD=root123
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - airline_net
+
+volumes:
+  db_data:
+
+networks:
+  airline_net:

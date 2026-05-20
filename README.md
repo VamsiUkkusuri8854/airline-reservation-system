@@ -230,9 +230,12 @@ Contributions, issues, and feature requests are welcome!
 
 ---
 
-## 📄 License
+## ©️ Copyright & License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
+
+**Copyright (c) 2026 Vamsi Ukkusuri.** All rights reserved.  
+*Developed for FlyHigh Airlines Reservation System.*
 
 ---
 

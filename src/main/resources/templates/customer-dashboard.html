@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
     <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #f4f6f9;
-        }
         .sidebar {
             background: linear-gradient(135deg, #0a2540, #00488c);
             color: white;
@@ -48,44 +45,6 @@
             padding: 15px;
             border-left: 3px solid #00a8cc;
         }
-        .metric-card {
-            background: #ffffff;
-            border-radius: 12px;
-            border: none;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border-top: 4px solid #00a8cc;
-        }
-        .table-custom {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-        .table-custom th {
-            background-color: #f8f9fa;
-            color: #495057;
-            font-weight: 700;
-            border: none;
-            padding: 15px;
-        }
-        .table-custom td {
-            vertical-align: middle;
-            padding: 15px;
-            border-top: 1px solid #f1f3f5;
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #00a8cc, #0072ac);
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-        }
-        .btn-danger {
-            background: linear-gradient(135deg, #ff4d4d, #cc0000);
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-        }
     </style>
 </head>
 <body>
@@ -110,6 +69,9 @@
             </a>
             <a class="nav-link-custom" id="tab-profile" data-bs-toggle="tab" href="#profile-pane">
                 👤 &nbsp;&nbsp; My Profile
+            </a>
+            <a href="/live-flights" class="nav-link-custom text-info fw-bold" style="border-left: 4px solid transparent;">
+                📡 &nbsp;&nbsp; Live Flights Radar
             </a>
             <div class="mt-auto pt-5 w-100">
                 <hr class="text-white-50 my-2 mx-3">
