@@ -88,7 +88,12 @@ public class FlightController {
                                   @RequestParam(required = false) String destination,
                                   @RequestParam(required = false) String airline,
                                   @RequestParam(required = false) String status,
+                                  HttpSession session,
                                   Model model) {
+        // Pass session user for session-aware navigation
+        User user = (User) session.getAttribute("user");
+        model.addAttribute("user", user);
+
         // Fetch flights (both API and manual fallback are supported via service)
         List<Flight> allFlights = flightService.getAllFlights();
         
