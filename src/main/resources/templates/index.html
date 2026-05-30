@@ -39,7 +39,6 @@
                 FlyHigh Airlines
             </a>
             <div class="d-flex ms-auto align-items-center">
-                <a href="/live-flights" class="text-danger fw-bold text-decoration-none me-4">🔴 Live Flights</a>
                 <a th:if="${session.user == null}" href="/login" class="btn btn-outline-primary me-2">Log In</a>
                 <a th:if="${session.user == null}" href="/register" class="btn btn-primary">Sign Up</a>
                 <a th:if="${session.user != null}" th:href="${session.user.role == 'ADMIN' ? '/admin/dashboard' : '/customer/dashboard'}" class="btn btn-primary">Go to Dashboard</a>
